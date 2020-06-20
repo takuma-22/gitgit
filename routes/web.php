@@ -46,3 +46,19 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin'], function() {
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 });
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('news/create', 'Admin\NewsController@add');
+     Route::post('news/create', 'Admin\NewsController@create'); 
+});
+
+//課題３
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('profile//create', 'Admin\ProfileController@add');
+     Route::post('profile//create', 'Admin\ProfileController@create'); 
+});
+//課題６
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+     Route::get('profile//edit', 'Admin\ProfileController@add');
+     Route::post('profile//edit', 'Admin\ProfileController@update'); 
+});
