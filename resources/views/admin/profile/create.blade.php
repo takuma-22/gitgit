@@ -1,6 +1,7 @@
 
 @extends('layouts.admin')
 @section('title', 'プロフィールの新規作成')
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -16,25 +17,27 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">氏名</label>
+                        <label class="col-md-2" for="name">氏名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">性別</label>
+                        <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
+                            <input type="radio" class="radio" name="gender" value="male" checked="checked">男性
+                            <input type="radio" class="radio" name="gender" value="female" checked="checked">女性
+                            
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">趣味</label>
+                        <label class="col-md-2" for="hobby">趣味</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="hobby" rows="10">{{ old('honny') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">自己紹介欄</label>
+                        <label class="col-md-2" for="introduction">自己紹介欄</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
                         </div>

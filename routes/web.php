@@ -54,11 +54,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 //課題３
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-     Route::get('profile//create', 'Admin\ProfileController@add');
-     Route::post('profile//create', 'Admin\ProfileController@create'); 
+     Route::get('profile/create', 'Admin\ProfileController@add');
+     Route::post('profile/create', 'Admin\ProfileController@create'); 
 });
 //課題６
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-     Route::get('profile//edit', 'Admin\ProfileController@add');
-     Route::post('profile//edit', 'Admin\ProfileController@update'); 
+     Route::get('profile/edit', 'Admin\ProfileController@add');
+     Route::post('profile/edit', 'Admin\ProfileController@update'); 
 });
