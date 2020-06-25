@@ -1,6 +1,6 @@
-
 @extends('layouts.profile')
 @section('title', 'プロフィールの編集')
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -17,7 +17,7 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="name">氏名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ $profiles_form->name }}">
+                            <input type="text" class="form-control" name="name" value="{{ $profile_form->name }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -26,29 +26,41 @@
                             <input type="radio" name="gender" class="radio" value="male" checked="checked">男性
                             
                             <input type="radio" name="gender" class="radio" value="female" checked="checked">女性
-                            {{ $profiles_form->gender }}
+                            {{ $profile_form->gender }}
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="hobby">趣味</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="hobby" rows="10">{{ $profiles_form->hobby }}</textarea>
+                            <textarea class="form-control" name="hobby" rows="10">{{ $profile_form->hobby }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="10">{{ $profiles_form->introduction }}</textarea>
+                            <textarea class="form-control" name="introduction" rows="10">{{ $profile_form->introduction }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-10">
-                            <input type="hidden" name="id" value="{{ $profiles_form->id }}">
+                            <input type="hidden" name="id" value="{{ $profile_form->id }}">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-primary" value="更新">
                         </div>
                     </div>
                 </form>
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($profile_form->profile_histories != NULL)
+                                @foreach ($profile_form->profile_histories as $profilehistory)
+                                    <li class="list-group-item">{{ $profilehistory->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
